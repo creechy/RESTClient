@@ -1160,7 +1160,9 @@ restclient.main = {
       reformatted = JSON.stringify(JSON.parse(responseData), null, "  ");
     }catch(e) {}
     $('#response-body-highlight pre').empty().removeClass('prettyprint linenums');
-    $.JSONView(reformatted, $('#response-body-highlight pre'));
+    if (reformatted) {
+        $.JSONView(reformatted, $('#response-body-highlight pre'));
+    }
     //$('#response-body-highlight pre').text(reformatted);
     $("#response-body-preview div.pre").removeClass('overflow').append($('<textarea></textarea>').text(reformatted));
   },
